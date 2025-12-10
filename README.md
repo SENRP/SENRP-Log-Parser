@@ -4,4 +4,8 @@ This program is used to convert the chat logs generated while playing on SenoraR
 
 ## Getting Started
 
-No installation is required. Simply download the latest [release](https://github.com/FatCatTuxedo/SenoraRP-Log-Parser/releases) and run the executable.
+No installation is required. Simply download the latest [release](https://github.com/SENRP/SenoraRP-Log-Parser/releases) and run the executable.
+
+[License](https://raw.githubusercontent.com/SENRP/SenoraRP-Log-Parser/refs/heads/master/LICENSE)
+
+Based on [GTAW Assistant](https://github.com/AdvGTAW/GTAW-Log-Parser)
