@@ -114,7 +114,7 @@ namespace SenoraRP_Chatlog_Assistant.Controllers
 
                 // Use REGEX to parse the chat_log section only. Why REGEX? It's way faster than loading the massive JSON object in memory and then getting only the chat_log part. 
 
-                log = Regex.Match(log, "(?<=chat_log\\\":\\\")(.*?)(?=\\\\n\\\",\\\"rememberuser)").Value;
+                log = Regex.Match(log, "(?<=chat_log\\\":\\\")(.*?)(?=\\\\n\\\")").Value;
 
                 if (string.IsNullOrWhiteSpace(log))
                     throw new IndexOutOfRangeException();
