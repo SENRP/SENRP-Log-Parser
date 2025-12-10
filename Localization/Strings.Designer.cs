@@ -640,7 +640,7 @@ namespace SenoraRP_Chatlog_Assistant.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://github.com/FatCatTuxedo/SenoraRP-Log-Parser.
+        ///   Looks up a localized string similar to https://github.com/SENRP/SenoraRP-Log-Parser.
         /// </summary>
         internal static string ProjectLink {
             get {
@@ -658,7 +658,7 @@ namespace SenoraRP_Chatlog_Assistant.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://github.com/FatCatTuxedo/SenoraRP-Log-Parser/releases.
+        ///   Looks up a localized string similar to https://github.com/SENRP/SenoraRP-Log-Parser/releases.
         /// </summary>
         internal static string ReleasesLink {
             get {

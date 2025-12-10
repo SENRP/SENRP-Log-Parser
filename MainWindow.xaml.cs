@@ -414,7 +414,7 @@ namespace SenoraRP_Chatlog_Assistant.UI
             try
             {
                 string installedVersion = AppController.Version;
-                IReadOnlyList<Release> releases = _client.Repository.Release.GetAll("FatCatTuxedo", AppController.ProductHeader).Result;
+                IReadOnlyList<Release> releases = _client.Repository.Release.GetAll("SENRP", AppController.ProductHeader).Result;
 
                 string newVersion = string.Empty;
                 bool isNewVersionBeta = false;
