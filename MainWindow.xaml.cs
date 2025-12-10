@@ -626,5 +626,27 @@ namespace SenoraRP_Chatlog_Assistant.UI
         {
             Close();
         }
+        private static FilterWindow chatLogFilter;
+        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(DirectoryPath.Text) || !Directory.Exists(DirectoryPath.Text + "client_resources\\"))
+            {
+                MessageBox.Show(Strings.InvalidDirectoryPathFilter, Strings.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            SaveSettings();
+
+            if (chatLogFilter == null)
+            {
+                chatLogFilter = new FilterWindow(this);
+                chatLogFilter.Closed += (s, args) =>
+                {
+                    chatLogFilter = null;
+                };
+            }
+
+            chatLogFilter.ShowDialog();
+        }
     }
 }

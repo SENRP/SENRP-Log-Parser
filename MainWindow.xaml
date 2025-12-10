@@ -139,6 +139,7 @@
                 <Button x:Name="SaveParsed" Click="SaveParsed_Click" Content="Save As" HorizontalAlignment="Left" Margin="290,159,0,0" VerticalAlignment="Top" Width="75"  BorderBrush="#CC000000" Foreground="Black" Background="#FF58B686"/>
                 <Button x:Name="CopyParsedToClipboard" Click="CopyParsedToClipboard_Click" Content="Copy To Clipboard" HorizontalAlignment="Left" Margin="370,159,0,0" VerticalAlignment="Top" Width="125"  BorderBrush="#CC000000" Foreground="Black" Background="#FF58B686"/>
                 <Button x:Name="BackupSettings" Click="BackupSettingsToolStripMenuItem_Click"  Content="Settings" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="119" BorderBrush="#CC000000" Foreground="Black" Background="#FF58B686"/>
+                <Button x:Name="FilterButton" Click="FilterButton_Click"  Content="Filter" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="119" BorderBrush="#CC000000" Foreground="Black" Background="#FF58B686"/>
             </Grid>
 
         </Grid>

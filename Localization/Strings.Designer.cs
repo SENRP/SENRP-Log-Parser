@@ -73,6 +73,15 @@ namespace SenoraRP_Chatlog_Assistant.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Advanced Filter.
+        /// </summary>
+        internal static string AdvancedFilter {
+            get {
+                return ResourceManager.GetString("AdvancedFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  because the &quot;{0}&quot; directories already exist..
         /// </summary>
         internal static string AlreadyExistingDirectoriesWarning {
@@ -277,6 +286,58 @@ namespace SenoraRP_Chatlog_Assistant.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can only have one word, number, or valid name pair on each line if you want to filter your chat log.
+        ///Example: Boat, $500, John, John Doe or John_Doe.
+        /// </summary>
+        internal static string FilterHint {
+            get {
+                return ResourceManager.GetString("FilterHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No matches found.
+        ///
+        ///Make sure you only have one word, number, or valid name pair on each line.
+        ///Example: Boat, $500, John, John Doe or John_Doe.
+        /// </summary>
+        internal static string FilterHintNoMatches {
+            get {
+                return ResourceManager.GetString("FilterHintNoMatches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One or more words were skipped during the filtering operation because they are not in a valid format.
+        ///
+        ///Make sure you only have one word, number, or valid name pair on each line.
+        ///Example: Boat, $500, John, John Doe or John_Doe.
+        /// </summary>
+        internal static string FilterHintSkipped {
+            get {
+                return ResourceManager.GetString("FilterHintSkipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chat log{0} loaded{1}.
+        /// </summary>
+        internal static string FilterLogStatus {
+            get {
+                return ResourceManager.GetString("FilterLogStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured while reading the selected file..
+        /// </summary>
+        internal static string FilterReadError {
+            get {
+                return ResourceManager.GetString("FilterReadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
         internal static string Information {
@@ -318,6 +379,17 @@ namespace SenoraRP_Chatlog_Assistant.Localization {
         internal static string InvalidDirectoryPathFilter {
             get {
                 return ResourceManager.GetString("InvalidDirectoryPathFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The chosen language will be used to extract the chat log from the correct server.
+        ///
+        ///This means that if you chose English, you will only be able to parse the chat log generated from the English server. You will need to change the language of the application if you wish to parse other chat logs..
+        /// </summary>
+        internal static string LanguageInfo {
+            get {
+                return ResourceManager.GetString("LanguageInfo", resourceCulture);
             }
         }
         
@@ -462,6 +534,18 @@ namespace SenoraRP_Chatlog_Assistant.Localization {
         internal static string NoWordsToFilter {
             get {
                 return ResourceManager.GetString("NoWordsToFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An old format was detected while parsing the chat log and it is advised you delete it and all other scripts that didn&apos;t update correcly.
+        ///
+        ///Would you like to delete these files?
+        ///(The chat log file will be parsed before deletion).
+        /// </summary>
+        internal static string OldChatLog {
+            get {
+                return ResourceManager.GetString("OldChatLog", resourceCulture);
             }
         }
         
