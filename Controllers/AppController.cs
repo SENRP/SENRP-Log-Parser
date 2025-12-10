@@ -25,12 +25,6 @@ namespace SenoraRP_Chatlog_Assistant.Controllers
         public static readonly string StartupPath = Path.GetDirectoryName(ExecutablePath);
         public static string PreviousLog = string.Empty;
 
-        /// <summary>
-        /// Initializes the server IPs matching with the
-        /// current server depending on the chosen locale
-        /// and determines the newest log file if multiple
-        /// server IPs are used to connect to the server
-        /// </summary>
         public static void InitializeServerIp()
         {
             try
@@ -38,15 +32,11 @@ namespace SenoraRP_Chatlog_Assistant.Controllers
                 ResourceDirectory = "Not Found";
                 LogLocation = $"client_resources\\{@"play.senorarp.com_22005"}\\.storage";
 
-                // Return if the user has not picked
-                // a RAGEMP directory path yet
                 string directoryPath = Properties.Settings.Default.DirectoryPath;
                 if (string.IsNullOrWhiteSpace(directoryPath)) return;
 
-                // Get every directory in the client_resources directory found inside directoryPath
                 string[] resourceDirectories = Directory.GetDirectories(directoryPath + @"\client_resources");
 
-                // Store each GTA W .storage file path in a List (found by a tag in the .storage file)
                 List<string> potentialLogs = new List<string>();
                 foreach (string resourceDirectory in resourceDirectories)
                 {
@@ -89,16 +79,6 @@ namespace SenoraRP_Chatlog_Assistant.Controllers
             }
         }
 
-        /// <summary>
-        /// Parses the most recent chat log found at the
-        /// selected RAGEMP directory path and returns it.
-        /// Displays an error if a chat log does not
-        /// exist or if it has an incorrect format
-        /// </summary>
-        /// <param name="directoryPath"></param>
-        /// <param name="removeTimestamps"></param>
-        /// <param name="showError"></param>
-        /// <returns></returns>
         public static string ParseChatLog(string directoryPath, bool removeTimestamps, bool showError = false)
         {
             try
@@ -109,10 +89,6 @@ namespace SenoraRP_Chatlog_Assistant.Controllers
                 {
                     log = sr.ReadToEnd();
                 }
-
-
-
-                // Use REGEX to parse the chat_log section only. Why REGEX? It's way faster than loading the massive JSON object in memory and then getting only the chat_log part. 
 
                 log = Regex.Match(log, "(?<=chat_log\\\":\\\")(.*?)(?=\\\\n\\\")").Value;
 

@@ -10,10 +10,7 @@ using SenoraRP_Chatlog_Assistant.Localization;
 
 namespace SenoraRP_Chatlog_Assistant.UI
 {
-    /// <summary>
-    /// Interaction logic for BackupSettingsWindow.xaml
-    /// </summary>
-    public partial class BackupSettingsWindow
+    public partial class SettingsWindow
     {
         private readonly MainWindow _mainWindow;
         private readonly bool _isLoading;
@@ -45,7 +42,7 @@ namespace SenoraRP_Chatlog_Assistant.UI
         /// Initializes the backup window
         /// </summary>
         /// <param name="mainWindow"></param>
-        public BackupSettingsWindow(MainWindow mainWindow)
+        public SettingsWindow(MainWindow mainWindow)
         {
             _isLoading = true;
             _mainWindow = mainWindow;
@@ -73,6 +70,9 @@ namespace SenoraRP_Chatlog_Assistant.UI
             Properties.Settings.Default.StartWithWindows = StartWithWindows.IsChecked == true;
             Properties.Settings.Default.SuppressNotifications = SuppressNotifications.IsChecked == true;
             Properties.Settings.Default.WarnOnSameHash = WarnWithHash.IsChecked == true;
+            Properties.Settings.Default.DisableInformationPopups = DisableInformationPopups.IsChecked == true;
+            Properties.Settings.Default.DisableWarningPopups = DisableWarningPopups.IsChecked == true;
+            Properties.Settings.Default.DisableErrorPopups = DisableErrorPopups.IsChecked == true;
 
             Properties.Settings.Default.Save();
         }
@@ -93,6 +93,9 @@ namespace SenoraRP_Chatlog_Assistant.UI
             StartWithWindows.IsChecked = Properties.Settings.Default.StartWithWindows;
             SuppressNotifications.IsChecked = Properties.Settings.Default.SuppressNotifications;
             WarnWithHash.IsChecked = Properties.Settings.Default.WarnOnSameHash;
+            DisableInformationPopups.IsChecked = Properties.Settings.Default.DisableInformationPopups;
+            DisableWarningPopups.IsChecked = Properties.Settings.Default.DisableWarningPopups;
+            DisableErrorPopups.IsChecked = Properties.Settings.Default.DisableErrorPopups;
         }
 
         /// <summary>

@@ -73,7 +73,7 @@ namespace SenoraRP_Chatlog_Assistant.UI
             // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             // ReSharper disable once UnreachableCode
 #pragma warning disable 162
-            Version.Text = string.Format(Strings.VersionInfo, AppController.Version, AppController.IsBetaVersion ? Strings.BetaShort : string.Empty);
+            Version.Text = string.Format(Strings.VersionInfo, AppController.Version, string.Empty);
 #pragma warning restore 162
             StatusLabel.Content = string.Format(Strings.BackupStatus, Properties.Settings.Default.BackupChatLogAutomatically ? Strings.Enabled : Strings.Disabled);
             Counter.Text = string.Format(Strings.CharacterCounter, 0, 0);
@@ -132,7 +132,7 @@ namespace SenoraRP_Chatlog_Assistant.UI
 
             if (Properties.Settings.Default.BackupChatLogAutomatically)
             {
-                BackupSettingsWindow.ResetSettings();
+                SettingsWindow.ResetSettings();
 
                 StatusLabel.Content = string.Format(Strings.BackupStatus, Strings.Disabled);
                 MessageBox.Show(Strings.BackupTurnedOff, Strings.Information, MessageBoxButton.OK, MessageBoxImage.Information);
@@ -308,9 +308,12 @@ namespace SenoraRP_Chatlog_Assistant.UI
             {
                 AppController.PreviousLog = Parsed.Text;
                 Parsed.Text = Regex.Replace(AppController.PreviousLog, @"\[\d{1,2}:\d{1,2}:\d{1,2}\] ", string.Empty);
+                Parsed.Text = Regex.Replace(Parsed.Text, "<[^>]*>", string.Empty);
             }
             else if (!string.IsNullOrWhiteSpace(AppController.PreviousLog))
-                Parsed.Text = AppController.PreviousLog;
+            {
+                Parsed.Text = Regex.Replace(AppController.PreviousLog, "<[^>]*>", string.Empty);
+            }
         }
 
         /// <summary>
@@ -464,7 +467,7 @@ namespace SenoraRP_Chatlog_Assistant.UI
         /// <summary>
         /// Opens the backup settings window
         /// </summary>
-        private static BackupSettingsWindow backupSettings;
+        private static SettingsWindow backupSettings;
         private void BackupSettingsToolStripMenuItem_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(DirectoryPath.Text) || !Directory.Exists(DirectoryPath.Text + "client_resources\\"))
@@ -489,7 +492,7 @@ namespace SenoraRP_Chatlog_Assistant.UI
 
             if (backupSettings == null)
             {
-                backupSettings = new BackupSettingsWindow(this);
+                backupSettings = new SettingsWindow(this);
                 backupSettings.IsVisibleChanged += (s, args) =>
                 {
                     if ((bool)args.NewValue) return;
@@ -605,29 +608,6 @@ namespace SenoraRP_Chatlog_Assistant.UI
             _trayIcon.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             _trayIcon.ContextMenuStrip.Items.Add(@"Open", null, ResumeTrayStripMenuItem_Click);
             _trayIcon.ContextMenuStrip.Items.Add(@"Exit", null, ExitTrayToolStripMenuItem_Click);
-        }
-
-        /// <summary>
-        /// Opens the program settings window
-        /// </summary>
-        private static ProgramSettingsWindow programSettings;
-        private void OpenProgramSettings_Click(object sender, RoutedEventArgs e)
-        {
-            SaveSettings();
-
-            if (programSettings == null)
-            {
-                programSettings = new ProgramSettingsWindow(this);
-                programSettings.Closed += (s, args) =>
-                {
-                    _client = new GitHubClient(new ProductHeaderValue(AppController.ProductHeader));
-                    _client.SetRequestTimeout(new TimeSpan(0, 0, 0, Properties.Settings.Default.UpdateCheckTimeout));
-
-                    programSettings = null;
-                };
-            }
-
-            programSettings.ShowDialog();
         }
         // Can execute
         private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)

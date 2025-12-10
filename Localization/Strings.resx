@@ -123,9 +123,6 @@
 Installed Version: {0} {1}
 Resource Directory: {2}</value>
   </data>
-  <data name="AdvancedFilter" xml:space="preserve">
-    <value>Advanced Filter</value>
-  </data>
   <data name="AlreadyExistingDirectoriesWarning" xml:space="preserve">
     <value> because the "{0}" directories already exist.</value>
   </data>
@@ -166,12 +163,6 @@ Would you like to continue?</value>
   <data name="BadDirectoryPath" xml:space="preserve">
     <value>Please pick a non-root directory for your RAGEMP directory location.</value>
   </data>
-  <data name="Beta" xml:space="preserve">
-    <value>Beta</value>
-  </data>
-  <data name="BetaShort" xml:space="preserve">
-    <value>b</value>
-  </data>
   <data name="CharacterCounter" xml:space="preserve">
     <value>{0} characters and {1} lines</value>
   </data>
@@ -201,45 +192,14 @@ Please browse for the correct path manually if this is incorrect or you have mul
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="FeatureShowcaseLink" xml:space="preserve">
-    <value>https://forum.senorarp.com/chatlog-tool</value>
-  </data>
   <data name="FileDeleteError" xml:space="preserve">
     <value>An error occurred while trying to delete the file.</value>
-  </data>
-  <data name="FilterHint" xml:space="preserve">
-    <value>You can only have one word, number, or valid name pair on each line if you want to filter your chat log.
-Example: Boat, $500, John, John Doe or John_Doe</value>
-  </data>
-  <data name="FilterHintNoMatches" xml:space="preserve">
-    <value>No matches found.
-
-Make sure you only have one word, number, or valid name pair on each line.
-Example: Boat, $500, John, John Doe or John_Doe</value>
-  </data>
-  <data name="FilterHintSkipped" xml:space="preserve">
-    <value>One or more words were skipped during the filtering operation because they are not in a valid format.
-
-Make sure you only have one word, number, or valid name pair on each line.
-Example: Boat, $500, John, John Doe or John_Doe</value>
-  </data>
-  <data name="FilterLogStatus" xml:space="preserve">
-    <value>Chat log{0} loaded{1}</value>
-  </data>
-  <data name="FilterReadError" xml:space="preserve">
-    <value>An error occured while reading the selected file.</value>
-  </data>
-  <data name="ForumsLink" xml:space="preserve">
-    <value>https://forum.senorarp.com</value>
   </data>
   <data name="Information" xml:space="preserve">
     <value>Information</value>
   </data>
   <data name="IntervalHint" xml:space="preserve">
     <value>Back up the chat log automatically while the game is running (every {0} {1})</value>
-  </data>
-  <data name="IntervalRecommended" xml:space="preserve">
-    <value>{0}. (recommended)</value>
   </data>
   <data name="InvalidDirectoryPath" xml:space="preserve">
     <value>Invalid RAGEMP directory path.</value>
@@ -249,14 +209,6 @@ Example: Boat, $500, John, John Doe or John_Doe</value>
   </data>
   <data name="InvalidDirectoryPathFilter" xml:space="preserve">
     <value>Please choose a valid RAGEMP directory location before trying to filter your chat log.</value>
-  </data>
-  <data name="Language" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="LanguageInfo" xml:space="preserve">
-    <value>The chosen language will be used to extract the chat log from the correct server.
-
-This means that if you chose English, you will only be able to parse the chat log generated from the English server. You will need to change the language of the application if you wish to parse other chat logs.</value>
   </data>
   <data name="LoadedAt" xml:space="preserve">
     <value> at {0}</value>
@@ -311,12 +263,6 @@ Installed Version: {0}</value>
     <value>You haven't entered any words to filter in.
 
 Use the simple filter if you don't want to filter for words.</value>
-  </data>
-  <data name="OldChatLog" xml:space="preserve">
-    <value>An old format was detected while parsing the chat log and it is advised you delete it and all other scripts that didn't update correcly.
-
-Would you like to delete these files?
-(The chat log file will be parsed before deletion)</value>
   </data>
   <data name="OpenDocumentation" xml:space="preserve">
     <value>Would you like to open the documentation page for the chat log parser found on the SenoraRP forums?</value>
