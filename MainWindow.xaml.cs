@@ -363,7 +363,7 @@ namespace SenoraRP_Chatlog_Assistant.UI
                     ToggleControls();
 
                 _isUpdateCheckManual = manual;
-                ThreadPool.QueueUserWorkItem(_ => CheckForUpdates(ref _isUpdateCheckManual));
+                ThreadPool.QueueUserWorkItem(_ => CheckForUpdates(_isUpdateCheckManual));
                 ThreadPool.QueueUserWorkItem(_ => FinishUpdateCheck());
             }
             else if (manual && !_isUpdateCheckManual)
@@ -409,10 +409,7 @@ namespace SenoraRP_Chatlog_Assistant.UI
         /// Checks for updates
         /// </summary>
         /// <param name="manual"></param>
-#pragma warning disable 162
-        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
-        [SuppressMessage("ReSharper", "UnreachableCode")]
-        private void CheckForUpdates(ref bool manual)
+        private void CheckForUpdates(bool manual)
         {
             try
             {
@@ -420,44 +417,30 @@ namespace SenoraRP_Chatlog_Assistant.UI
                 IReadOnlyList<Release> releases = _client.Repository.Release.GetAll("SENRP", AppController.ProductHeader).Result;
 
                 string newVersion = string.Empty;
-                bool isNewVersionBeta = false;
 
-                // Prereleases are a go
-                if (!Properties.Settings.Default.IgnoreBetaVersions)
+                foreach (Release release in releases)
                 {
-                    newVersion = releases[0].TagName;
-                    isNewVersionBeta = releases[0].Prerelease;
-                }
-                else
-                {
-                    // If the user does not want to
-                    // look for prereleases during
-                    // the update check, ignore them
-                    foreach (Release release in releases)
-                    {
-                        if (release.Prerelease)
-                            continue;
+                    if (release.Prerelease)
+                        continue;
 
-                        newVersion = release.TagName;
-                        isNewVersionBeta = release.Prerelease;
-                        break;
-                    }
+                    newVersion = release.TagName;
+                    break;
                 }
 
-                if (AppController.IsBetaVersion && !isNewVersionBeta && string.CompareOrdinal(installedVersion, newVersion) == 0 || string.CompareOrdinal(installedVersion, newVersion) < 0)
+                if (string.CompareOrdinal(installedVersion, newVersion) > 0)
                 { // Update available
                     if (Visibility != Visibility.Visible)
                         ResumeTrayStripMenuItem_Click(this, EventArgs.Empty);
 
-                    DisplayUpdateMessage(string.Format(Strings.UpdateAvailable, installedVersion + (AppController.IsBetaVersion ? " Beta" : string.Empty), newVersion + (isNewVersionBeta ? " Beta" : string.Empty)), Strings.UpdateAvailableTitle, MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    DisplayUpdateMessage(string.Format(Strings.UpdateAvailable, installedVersion, newVersion), Strings.UpdateAvailableTitle, MessageBoxButton.YesNo, MessageBoxImage.Information);
                 }
                 else if (manual) // Latest version
-                    DisplayUpdateMessage(string.Format(Strings.RunningLatest, installedVersion + (AppController.IsBetaVersion ? " Beta" : string.Empty)), Strings.Information, MessageBoxButton.OK, MessageBoxImage.Information);
+                    DisplayUpdateMessage(string.Format(Strings.RunningLatest, installedVersion), Strings.Information, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch // No internet
             {
                 if (manual)
-                    DisplayUpdateMessage(string.Format(Strings.NoInternet, AppController.Version + (AppController.IsBetaVersion ? " Beta" : string.Empty)), Strings.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                    DisplayUpdateMessage(string.Format(Strings.NoInternet, AppController.Version), Strings.Error, MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             _resetEvent.Set();

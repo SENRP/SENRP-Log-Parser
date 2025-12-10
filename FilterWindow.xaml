@@ -122,7 +122,7 @@
                 <Button x:Name="LoadUnparsed" Click="LoadUnparsed_Click" Content="Load Unparsed Chat Log" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#CC000000" Foreground="Black" Background="#FF58B686"/>
                 <Button x:Name="BrowseForParsed" Click="BrowseForParsed_Click" Content="Browse For Parsed Chat Log" HorizontalAlignment="Left" Margin="165,41,0,0" VerticalAlignment="Top" Width="174" BorderBrush="#CC000000" Foreground="Black" Background="#FF58B686"/>
                 <Button x:Name="FilterModeToggle" Click="FilterModeToggle_Click" Content="Advanced Filter" HorizontalAlignment="Left" Margin="344,41,0,0" VerticalAlignment="Top" Width="140" BorderBrush="#CC000000" Foreground="Black" Background="#FF58B686"/>
-                <TextBox x:Name="Filtered" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="179" Margin="165,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" AcceptsReturn="True"/>
+                <TextBox x:Name="Filtered" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="179" Margin="165,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" AcceptsReturn="True" Background="#CC000000" Foreground="White" SelectionBrush="#FFAEE2C4" BorderBrush="Black"/>
 
 
                 <CheckBox x:Name="IC" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="Local" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="70" Foreground="White" Background="#CC000000" BorderBrush="#CC58B686"/>
