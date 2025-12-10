@@ -127,6 +127,8 @@ namespace SenoraRP_Chatlog_Assistant.Controllers
                 if (removeTimestamps)
                     log = Regex.Replace(log, @"\[\d{1,2}:\d{1,2}:\d{1,2}\] ", string.Empty);
 
+                log = Regex.Replace(log, "<[^>]*>", string.Empty);
+
                 return log;
             }
             catch
