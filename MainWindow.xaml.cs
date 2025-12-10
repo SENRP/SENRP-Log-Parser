@@ -413,7 +413,7 @@ namespace SenoraRP_Chatlog_Assistant.UI
         {
             try
             {
-                string installedVersion = AppController.Version;
+                string installedVersion = AppController.AssemblyVersion;
                 IReadOnlyList<Release> releases = _client.Repository.Release.GetAll("SENRP", AppController.ProductHeader).Result;
 
                 string newVersion = string.Empty;
